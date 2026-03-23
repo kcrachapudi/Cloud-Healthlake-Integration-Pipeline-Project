@@ -1,16 +1,19 @@
 # Original Architecture
 
-PRODUCER (Hospital HL7 Systems)
+HL7 Producer (Python Script)
         ↓
-Mirth Connect (Transport + Reliability)
+TCP / File / HTTP
         ↓
-Amazon S3 (Raw HL7 Storage / Buffer)
+Python Integration Engine (Mini Mirth)
         ↓
-AWS Lambda (Python)
-  - HL7 Parsing
-  - Business Logic
-  - HL7 → FHIR Conversion
+AWS S3 Bucket (Raw HL7 Storage)
         ↓
-AWS HealthLake (FHIR Store + Query Engine)
+Lambda Parser (HL7 → FHIR Bundle)
         ↓
-FastAPI (Optional Consumer API Layer)
+FHIR Bundle JSON → S3 Processed Bucket
+        ↓
+Lambda Loader
+        ↓
+HealthLake Datastore
+        ↓
+API Layer (FastAPI)

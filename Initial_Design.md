@@ -9,13 +9,8 @@ Understand segments (PID, OBX, PV1)
 Build mapping logic
 
 
-# ✅ 2. Mirth is NOT wasted
-Using Mirth Connect for:
-MLLP handling
-ACK/NACK
-Retry logic
-Message buffering
-We are using it as:
+# ✅ 2. Pythone (mini Mirth)
+Integration and Routing Engine 
 transport + reliability layer
 Not as:
 ❌ transformation engine
@@ -48,8 +43,7 @@ parsing ❌
 transformation ❌
 
 # ✅ 6. FastAPI Layer (Smart Addition)
-Even though HealthLake has APIs:
-👉 Adding FastAPI gives you:
+Adding FastAPI gives you:
 Custom endpoints
 Business logic
 Aggregation
@@ -71,10 +65,20 @@ HealthLake	storage + query
 FastAPI	consumption
 
 
-✅ HL7 + FHIR (rare combo)
-✅ Integration engine (Mirth)
-✅ Cloud (AWS serverless)
-✅ Python data processing
-✅ Healthlake data architecture
-✅ API layer
-
+HL7 Producer (Python Script)
+        ↓
+TCP / File / HTTP
+        ↓
+Python Integration Engine (Mini Mirth)
+        ↓
+AWS S3 Bucket (Raw HL7 Storage)
+        ↓
+Lambda Parser (HL7 → FHIR Bundle)
+        ↓
+FHIR Bundle JSON → S3 Processed Bucket
+        ↓
+Lambda Loader
+        ↓
+HealthLake Datastore
+        ↓
+API Layer (FastAPI)
