@@ -1,0 +1,6 @@
+MSH|^~&|SchedSystem|Hosp|Receiver|Clinic|202603230900||SIU^S12|MSG00001|P|2.5
+SCH|APPT001|||||||202603251000|||||REG|||Dr. Smith^John^|||||||||||202603230900
+PID|||PAT123||Doe^Jane||19800520|F|||123 Maple St^^City^^12345||(555)555-5555
+RGS|1
+AIG|1|PES|RES01^Exam Room 1
+AIP|1|PPR|DOC1^Dr. Smith^John

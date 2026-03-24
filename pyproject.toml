@@ -1,0 +1,10 @@
+[project]
+name = "Cloud-Healthcare-Integration-Pipeline-Project"
+version = "1.0.0"
+authors = [
+  { name="Kalyan Rachapudi", email="kcrachapudi@gmail.com" },
+]
+requires-python = ">=3.12"
+
+[tool.setuptools]
+packages = ["hl7_samples", "hl7_producer", "integration_logs", "integration_engine"]

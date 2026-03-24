@@ -1,7 +1,7 @@
 import socket
-from router import route_message
-from ack import generate_ack
-from logger import log_message
+from integration_engine.hl7_classifier import classify_hl7
+from integration_engine.ack import generate_ack
+from integration_engine.logger import log_message
 
 HOST = "0.0.0.0"
 PORT = 2575
@@ -17,7 +17,7 @@ while True:
 
     data = conn.recv(4096).decode()
 
-    msg_type = route_message(data)
+    msg_type = classify_hl7(data)
 
     ack = generate_ack(data)
 

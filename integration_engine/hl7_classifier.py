@@ -1,4 +1,4 @@
-def route_message(hl7):
+def classify_hl7(hl7):
 
     msh = hl7.split("\n")[0].split("|")
 
